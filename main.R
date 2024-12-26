@@ -32,14 +32,12 @@ forecast <- predict(model, future)
 # gráfico preço x tempo
 plot(df[["ds"]], df[["y"]], type="l")
 
-# Gráfico do forecast
-plot(model, forecast) -> plt4
 
 # Componentes adicionais do modelo
 prophet_plot_components(model, forecast) -> plt5
 
 
-# gráfico interativo
+# gráfico interativo do forecast
 plot_forecast <- plot_ly() %>%
     add_lines(x= forecast$ds, y= forecast$yhat, name= "Previsão", line= list(color= "blue")) %>%
     add_ribbons(
